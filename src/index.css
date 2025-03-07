@@ -5,6 +5,39 @@
 .login-card {
   max-width: 468px;
 }
-.sidebar {
+.sidebar-wrapper {
+  z-index: 1;
   box-shadow: 0px 0px 20px 0px #e0e0e0;
+}
+.sidebar{
+  width: 260px;
+}
+
+/* Webkit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Scrollbar Track (background) */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Scrollbar Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Scrollbar Handle on Hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Firefox (MacOS-like scrollbar) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
 }

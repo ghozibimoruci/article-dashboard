@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { data } from "../assets/articles";
+import { Grid } from "gridjs-react";
+import {h} from "gridjs"
+import { useNavigate } from "react-router-dom";
 
 interface ArticleProps {
+  id: number
   title: string;
   content: string;
   is_published: boolean;
@@ -9,10 +13,14 @@ interface ArticleProps {
 }
 
 const ArticleList: React.FC = () => {
+  const navigate = useNavigate();
   const [datas, setDatas] = useState<ArticleProps[]>([]);
 
   useEffect(()=>{
-    const newData = data;
+    const newData = data.map((item, idx) => ({
+      ...item,
+      id: idx
+    }));
     setDatas(newData);
   }, [])
 
@@ -22,37 +30,48 @@ const ArticleList: React.FC = () => {
         <h2>Article List</h2>
       </div>
       <div className="col-12">
-        {
-          datas.length > 0 && (
-            <table className="table">
-              <thead>
-                <tr>
-                  {
-                    Object.keys(datas[0]).map(
-                      (key, idx) => (
-                        <th scope="col" key={idx}>{key}</th>
-                      )
-                    )
-                  }
-                </tr>
-              </thead>
-              <tbody>
-                {
-                  datas.map(
-                    (data, idx) => (
-                      <tr key={idx}>
-                        <td>{data.title}</td>
-                        <td>{data.content}</td>
-                        <td>{data.is_published ? 'yes' : 'no'}</td>
-                        <td>{data.created_at}</td>
-                      </tr>
-                    )
-                  )
+        <Grid
+          data={datas.map(data => ({
+            ...data,
+            action: data
+          }))}
+          columns={[{
+            id: 'id',
+            name: 'No',
+            formatter: (value: number) => (
+              value + 1
+            )
+          },{
+            id: 'title',
+            name: 'Title'
+          }, {
+            id: 'content',
+            name: 'Content'
+          }, {
+            id: 'is_published',
+            name: 'Is Published',
+            formatter: (value: boolean) => (
+              value ? 'Yes' : 'No'
+            )
+          }, {
+            id: 'created_at',
+            name: 'Created At'
+          },{ id: "actions", name: "Actions", formatter: (_, row) => {
+            return h('button', {
+              className: 'py-2 mb-4 px-4 border rounded-md text-white btn btn-primary',
+              onClick: () => {
+                const rowIndex = row.cells[0].data;
+                if(typeof rowIndex == "number"){
+                  const detail = datas[rowIndex];
+                  navigate(`/article-detail`, { state: detail });
                 }
-              </tbody>
-            </table>
-          )
-        }
+              }
+            }, 'Detail');
+          } }]}
+          search={true}
+          sort={true}
+          pagination={{ limit: 5 }}
+        />
       </div>
     </div>
   );
