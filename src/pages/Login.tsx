@@ -17,7 +17,7 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      navigate("/article-list"); // Redirect if already logged in
+      navigate("/dashboard"); // Redirect if already logged in
     }
   }, []);
 
