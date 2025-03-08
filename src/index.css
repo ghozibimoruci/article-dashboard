@@ -12,6 +12,13 @@
 .sidebar{
   width: 260px;
 }
+#article-list-wrapper .article-list-table  .article-list-tr:last-child > th{
+  padding: 0;
+  border: none;
+  min-width: 100px !important;
+  width: 100px !important;
+  /* hide last row for styling */
+}
 
 /* Webkit Browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {

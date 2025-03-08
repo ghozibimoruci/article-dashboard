@@ -10,6 +10,7 @@ import ArticleList from './pages/ArticleList'
 import "gridjs/dist/theme/mermaid.css";
 import NotFound from './pages/NotFound'
 import ArticleEdit from './pages/ArticleEdit'
+import Dashboard from './pages/Dashboard'
 
 function App() {
   return (
@@ -26,9 +27,11 @@ function App() {
             </ProtectedRoute>
           }
         >
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="article-list" element={<ArticleList />} />
-          <Route path="article-detail" element={<ArticleDetail />} />
-          <Route path="article-edit" element={<ArticleEdit />} />
+          <Route path="article/detail/:id" element={<ArticleDetail />} />
+          <Route path="article/edit/:id" element={<ArticleEdit />} />
+          <Route path="article/add" element={<ArticleEdit />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         {/* Redirect all unknown routes to Login */}
