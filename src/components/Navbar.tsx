@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Navbar: React.FC = () => {
+    const apiUrl = import.meta.env.VITE_API_URL;
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const location = useLocation();
@@ -13,7 +14,7 @@ const Navbar: React.FC = () => {
             navigate("/login"); // Redirect to login
         }
         // uncomment below for integrate API
-        // const API_URL = `url_logout`;
+        // const API_URL = `${apiUrl}/url_logout`;
         // const token = localStorage.getItem("token");
         // axios.post(API_URL, {
         //     headers: {

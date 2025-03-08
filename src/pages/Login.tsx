@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login: React.FC = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +23,7 @@ const Login: React.FC = () => {
 
   const doLogin = () => {
     // uncomment below for integrate API
-    // const API_URL = `url_login`
+    // const API_URL = `${apiUrl}/url_login`
     // axios.post(API_URL, {
     //   params: {
     //     email: email,
@@ -45,7 +46,7 @@ const Login: React.FC = () => {
 
   const doRegister = () => {
     // uncomment below for integrate API
-    // const API_URL = `url_registrasi`
+    // const API_URL = `${apiUrl}/url_registrasi`
     // const token = localStorage.getItem("token")
     // axios.post(API_URL, {
     //   body: {

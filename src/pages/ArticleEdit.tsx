@@ -15,6 +15,7 @@ interface ArticleDetailProps {
 }
 
 const ArticleEdit: React.FC = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [article, setArticle] = useState<ArticleDetailProps | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -33,7 +34,7 @@ const ArticleEdit: React.FC = () => {
     }
     // uncomment below for integrate API
     // const { id } = useParams();
-    // const API_URL = `url_get_detail_article/${id}`;
+    // const API_URL = `${apiUrl}/url_get_detail_article/${id}`;
     // const token = localStorage.getItem("token")
     // axios.get(API_URL, {
     //   headers: {
@@ -86,7 +87,7 @@ const ArticleEdit: React.FC = () => {
 
   const doAddArticle = () => {
     // uncomment below for integrate API
-    // const API_URL = `url_add_article${id}`
+    // const API_URL = `${apiUrl}/url_add_article${id}`
     // const token = localStorage.getItem("token")
     // axios.post(API_URL, {
     //   body: {
@@ -110,7 +111,7 @@ const ArticleEdit: React.FC = () => {
 
   const doEditArticle = () => {
     // uncomment below for integrate API
-    // const API_URL = `url_update_article${id}`
+    // const API_URL = `${apiUrl}/url_update_article${id}`
     // const token = localStorage.getItem("token")
     // axios.post(API_URL, {
     //   body: {

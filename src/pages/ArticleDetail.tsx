@@ -15,12 +15,13 @@ interface ArticleDetailProps {
 }
 
 const ArticleDetail: React.FC = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const [article, setArticle] = useState<ArticleDetailProps | null>(null);
   const navigate = useNavigate();
   
   const getArticleDetail = () => {
     // const { id } = useParams();
-    // const API_URL = `url_get_detail_article/${id}`;
+    // const API_URL = `${apiUrl}/url_get_detail_article/${id}`;
     // const token = localStorage.getItem("token")
     // axios.get(API_URL, {
     //   headers: {

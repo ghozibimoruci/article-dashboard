@@ -19,13 +19,14 @@ interface ArticleProps {
 }
 
 const Dashboard: React.FC = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
   const navigate = useNavigate();
   const [datas, setDatas] = useState<ArticleProps[]>([]);
 
   const getArticleList = () => {
     
     // uncomment below for integrate
-    // const API_URL = "url_get_article_list";
+    // const API_URL = `${apiUrl}/url_get_article_list`;
     // const token = localStorage.getItem("token")
     // axios.get(API_URL, {
     //   headers: {
