@@ -29,7 +29,7 @@ const ArticleDetail: React.FC = () => {
     //   }
     // })
     // .then(response => {
-    //   setArticle(response.data);
+    //   setArticle(response.data.data);
     // })
     // .catch(error => {
     //     console.error('Error:', error);

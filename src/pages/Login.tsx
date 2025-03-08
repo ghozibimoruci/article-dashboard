@@ -25,10 +25,8 @@ const Login: React.FC = () => {
     // uncomment below for integrate API
     // const API_URL = `${apiUrl}/url_login`
     // axios.post(API_URL, {
-    //   params: {
-    //     email: email,
-    //     password: password
-    //   }
+        // email: email,
+        // password: password
     // })
     // .then(response => {
     //   handleLogin(response.data.access_token);

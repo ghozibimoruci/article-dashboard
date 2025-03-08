@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
     //   }
     // })
     // .then(response => {
-    //   setDatas(response.data);
+    //   setDatas(response.data.data);
     // })
     // .catch(error => {
     //     console.error('Error:', error);

@@ -42,7 +42,7 @@ const ArticleEdit: React.FC = () => {
     //   }
     // })
     // .then(response => {
-    //   callbackAction(response.data);
+    //   callbackAction(response.data.data);
     // })
     // .catch(error => {
     //     console.error('Error:', error);
